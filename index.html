@@ -558,6 +558,41 @@
     .comp-table tr:hover td { background: rgba(0,212,255,.03); }
     .comp-table .win { color: var(--green); }
     .comp-table .lose { color: var(--text-dim); }
+    .comp-table .up { color: var(--green); }
+
+    /* ── SECTOR INTEL ── */
+    .rank-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; margin-right: 8px;
+      font-family: 'Orbitron', monospace; font-weight: 700; font-size: .7rem;
+      color: var(--bg); background: var(--cyan); border-radius: 2px;
+    }
+    .sector-sub {
+      font-family: 'Share Tech Mono', monospace; font-size: .68rem;
+      color: var(--text-dim); letter-spacing: .05em; margin-top: -4px; margin-bottom: 30px;
+      max-width: 640px; line-height: 1.7;
+    }
+    .stock-table-title {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Orbitron', monospace; font-size: .95rem; letter-spacing: .04em;
+      color: #fff; margin: 40px 0 14px;
+    }
+    .stock-table-title .heat-tag {
+      font-family: 'Share Tech Mono', monospace; font-size: .62rem; letter-spacing: .1em;
+      color: var(--text-dim); font-weight: 400;
+    }
+    .leader-row td { background: rgba(0,255,136,.05); }
+    .leader-tag {
+      display: inline-block; margin-left: 8px; padding: 1px 6px;
+      font-family: 'Share Tech Mono', monospace; font-size: .58rem; letter-spacing: .08em;
+      color: var(--bg); background: var(--green); border-radius: 2px; vertical-align: middle;
+    }
+    .sector-disclaimer {
+      margin-top: 44px; padding: 16px 20px; border: 1px solid var(--border);
+      background: rgba(0,212,255,.03);
+      font-family: 'Share Tech Mono', monospace; font-size: .66rem; color: var(--text-dim);
+      line-height: 1.8; letter-spacing: .02em;
+    }
 
     /* scrollbar */
     ::-webkit-scrollbar { width: 4px; }
@@ -575,6 +610,7 @@
     <li><a href="#specs">Technology</a></li>
     <li><a href="#fleet">Fleet Status</a></li>
     <li><a href="#deploy">Deployment</a></li>
+    <li><a href="#sector-intel">Market Intel</a></li>
     <li><a href="#cta">Contact</a></li>
   </ul>
   <div class="nav-actions">
@@ -1178,6 +1214,292 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<!-- ── SECTOR HEAT INTEL ── -->
+<section id="sector-intel">
+  <div class="s-head reveal">
+    <div class="s-eye">// A-SHARE MARKET INTEL · LIVE SNAPSHOT · 2026-07-14 收盘</div>
+    <h2>SECTOR HEAT <em>RADAR</em></h2>
+  </div>
+  <div class="sector-sub reveal">
+    数据来源：东方财富涨停股池接口（实时抓取，非人工编造）。方法论：统计当日全部涨停个股的所属行业标签，按涨停家数排序确定热点集中度，板块内个股按"连板数 → 封板资金"排序，资金/连板最强者标为龙头。仅为数据观察与统计分析，不构成投资建议。
+  </div>
+
+  <div class="threat-banner reveal"><span class="dot"></span>今日 81 只涨停 · 覆盖 44 个行业 · 热度集中前 3 板块如下</div>
+
+  <div class="comp-grid">
+
+    <div class="comp-card reveal">
+      <div class="comp-name"><span class="rank-badge">1</span>元件</div>
+      <div class="comp-hq">PCB · 覆铜板 · 精密结构件</div>
+      <div class="comp-rows">
+        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">11 只</span></div>
+        <div class="comp-row"><span class="comp-lbl">最高连板</span><span class="comp-val">1 板（首板集中爆发）</span></div>
+        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">33.12 亿元</span></div>
+        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">东山精密 · 生益科技</span></div>
+      </div>
+      <div class="comp-edge">板块内多为PCB/覆铜板/精密结构件厂商，普遍与AI服务器、算力硬件产业链相关，是今日资金合力最集中的板块。</div>
+    </div>
+
+    <div class="comp-card reveal">
+      <div class="comp-name"><span class="rank-badge">2</span>汽车零部件</div>
+      <div class="comp-hq">底盘 · 排气 · 精密压铸</div>
+      <div class="comp-rows">
+        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">7 只</span></div>
+        <div class="comp-row"><span class="comp-lbl">最高连板</span><span class="comp-val">1 板（首板为主）</span></div>
+        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">2.67 亿元</span></div>
+        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">飞龙股份 · 凯龙高科</span></div>
+      </div>
+      <div class="comp-edge">涨停数量仅次于元件板块，个股封板资金普遍偏小，情绪扩散型行情特征明显。</div>
+    </div>
+
+    <div class="comp-card reveal">
+      <div class="comp-name"><span class="rank-badge">3</span>工业金属</div>
+      <div class="comp-hq">铝业 · 铜业 · 锌锗</div>
+      <div class="comp-rows">
+        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">4 只</span></div>
+        <div class="comp-row"><span class="comp-lbl">最高连板</span><span class="comp-val">2 板</span></div>
+        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">2.47 亿元</span></div>
+        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">宏桥控股（2连板）</span></div>
+      </div>
+      <div class="comp-edge">板块内唯一出现连板股（宏桥控股），是今日3个热点板块中唯一延续性走强的板块。</div>
+    </div>
+
+  </div>
+
+  <div class="comp-table-wrap reveal">
+
+    <div class="stock-table-title">元件 <span class="heat-tag">// 11 只涨停 · 按连板数→封板资金排序</span></div>
+    <table class="comp-table">
+      <thead>
+        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>换手率</th><th>封板资金</th><th>最新价</th></tr>
+      </thead>
+      <tbody>
+        <tr class="leader-row">
+          <td>002384</td>
+          <td>东山精密<span class="leader-tag">龙头</span></td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>6.89%</td>
+          <td>11.79亿</td>
+          <td>260.37</td>
+        </tr>
+        <tr>
+          <td>600183</td>
+          <td>生益科技</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>3.38%</td>
+          <td>10.50亿</td>
+          <td>147.90</td>
+        </tr>
+        <tr>
+          <td>001389</td>
+          <td>广合科技</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>8.95%</td>
+          <td>2.85亿</td>
+          <td>186.01</td>
+        </tr>
+        <tr>
+          <td>002463</td>
+          <td>沪电股份</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>4.89%</td>
+          <td>2.53亿</td>
+          <td>137.13</td>
+        </tr>
+        <tr>
+          <td>002484</td>
+          <td>江海股份</td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>4.78%</td>
+          <td>1.86亿</td>
+          <td>86.19</td>
+        </tr>
+        <tr>
+          <td>002636</td>
+          <td>金安国纪</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>7.28%</td>
+          <td>1.17亿</td>
+          <td>95.68</td>
+        </tr>
+        <tr>
+          <td>000636</td>
+          <td>风华高科</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>11.50%</td>
+          <td>0.75亿</td>
+          <td>59.41</td>
+        </tr>
+        <tr>
+          <td>603186</td>
+          <td>华正新材</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>13.24%</td>
+          <td>0.66亿</td>
+          <td>177.01</td>
+        </tr>
+        <tr>
+          <td>002141</td>
+          <td>贤丰控股</td>
+          <td class="up">+9.91%</td>
+          <td>首板</td>
+          <td>8.71%</td>
+          <td>0.49亿</td>
+          <td>5.10</td>
+        </tr>
+        <tr>
+          <td>603989</td>
+          <td>艾华集团</td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>3.91%</td>
+          <td>0.37亿</td>
+          <td>37.92</td>
+        </tr>
+        <tr>
+          <td>920821</td>
+          <td>则成电子</td>
+          <td class="up">+29.97%</td>
+          <td>首板</td>
+          <td>12.64%</td>
+          <td>0.15亿</td>
+          <td>20.73</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stock-table-title">汽车零部件 <span class="heat-tag">// 7 只涨停 · 按连板数→封板资金排序</span></div>
+    <table class="comp-table">
+      <thead>
+        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>换手率</th><th>封板资金</th><th>最新价</th></tr>
+      </thead>
+      <tbody>
+        <tr class="leader-row">
+          <td>002536</td>
+          <td>飞龙股份<span class="leader-tag">龙头</span></td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>7.80%</td>
+          <td>1.07亿</td>
+          <td>54.07</td>
+        </tr>
+        <tr>
+          <td>603197</td>
+          <td>保隆科技</td>
+          <td class="up">+9.99%</td>
+          <td>首板</td>
+          <td>2.69%</td>
+          <td>0.72亿</td>
+          <td>29.62</td>
+        </tr>
+        <tr>
+          <td>300912</td>
+          <td>凯龙高科</td>
+          <td class="up">+19.98%</td>
+          <td>首板</td>
+          <td>10.33%</td>
+          <td>0.40亿</td>
+          <td>27.68</td>
+        </tr>
+        <tr>
+          <td>605255</td>
+          <td>天普股份</td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>0.72%</td>
+          <td>0.23亿</td>
+          <td>79.26</td>
+        </tr>
+        <tr>
+          <td>603201</td>
+          <td>常润股份</td>
+          <td class="up">+10.03%</td>
+          <td>首板</td>
+          <td>5.19%</td>
+          <td>0.17亿</td>
+          <td>15.79</td>
+        </tr>
+        <tr>
+          <td>603730</td>
+          <td>岱美股份</td>
+          <td class="up">+10.03%</td>
+          <td>首板</td>
+          <td>2.10%</td>
+          <td>0.05亿</td>
+          <td>11.41</td>
+        </tr>
+        <tr>
+          <td>605133</td>
+          <td>嵘泰股份</td>
+          <td class="up">+9.99%</td>
+          <td>首板</td>
+          <td>4.41%</td>
+          <td>0.04亿</td>
+          <td>34.68</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stock-table-title">工业金属 <span class="heat-tag">// 4 只涨停 · 按连板数→封板资金排序</span></div>
+    <table class="comp-table">
+      <thead>
+        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>换手率</th><th>封板资金</th><th>最新价</th></tr>
+      </thead>
+      <tbody>
+        <tr class="leader-row">
+          <td>002379</td>
+          <td>宏桥控股<span class="leader-tag">龙头</span></td>
+          <td class="up">+10.00%</td>
+          <td>2连板</td>
+          <td>9.74%</td>
+          <td>0.97亿</td>
+          <td>17.49</td>
+        </tr>
+        <tr>
+          <td>600497</td>
+          <td>驰宏锌锗</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>4.80%</td>
+          <td>0.71亿</td>
+          <td>9.79</td>
+        </tr>
+        <tr>
+          <td>002532</td>
+          <td>天山铝业</td>
+          <td class="up">+9.96%</td>
+          <td>首板</td>
+          <td>5.53%</td>
+          <td>0.65亿</td>
+          <td>12.25</td>
+        </tr>
+        <tr>
+          <td>600595</td>
+          <td>中孚实业</td>
+          <td class="up">+10.03%</td>
+          <td>首板</td>
+          <td>4.20%</td>
+          <td>0.14亿</td>
+          <td>6.36</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="sector-disclaimer reveal">
+    DATA SOURCE // EastMoney push2ex 涨停股池接口，2026-07-14 交易日实时数据 · 统计口径：全市场涨停家数按"东方财富所属行业"分类 · 龙头判定：同板块内连板数最高者优先，其次按封板资金排序 · 本板块分析仅为公开数据的统计整理，不构成任何投资建议，市场有风险，决策需谨慎。
   </div>
 </section>
 
