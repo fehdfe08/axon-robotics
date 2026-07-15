@@ -588,6 +588,17 @@
       color: var(--text-dim); letter-spacing: .05em; margin-top: -4px; margin-bottom: 30px;
       max-width: 640px; line-height: 1.7;
     }
+    .sector-refresh-btn {
+      margin-top: 20px; padding: 9px 18px;
+      font-family: 'Share Tech Mono', monospace; font-size: .68rem; letter-spacing: .1em;
+      color: var(--orange); background: rgba(255,106,0,.08); border: 1px solid var(--orange);
+      border-radius: 3px; cursor: pointer; transition: background .2s, color .2s;
+    }
+    .sector-refresh-btn:hover { background: var(--orange); color: var(--bg); }
+    .sector-refresh-hint {
+      margin-top: 8px; font-family: 'Share Tech Mono', monospace; font-size: .6rem;
+      color: var(--text-dim); letter-spacing: .04em;
+    }
     .stock-table-title {
       display: flex; align-items: center; gap: 10px;
       font-family: 'Orbitron', monospace; font-size: .95rem; letter-spacing: .04em;
@@ -622,11 +633,11 @@
 <nav>
   <div class="logo">AXON<em>.</em>ROBOTICS</div>
   <ul class="nav-links">
+    <li><a href="#sector-intel">Market Intel</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#specs">Technology</a></li>
     <li><a href="#fleet">Fleet Status</a></li>
     <li><a href="#deploy">Deployment</a></li>
-    <li><a href="#sector-intel">Market Intel</a></li>
     <li><a href="#cta">Contact</a></li>
   </ul>
   <div class="nav-actions">
@@ -682,6 +693,304 @@
   <!-- ticker -->
   <div class="hero-ticker">
     <div class="ticker-inner" id="ticker"></div>
+  </div>
+</section>
+
+<!-- ── SECTOR HEAT INTEL ── -->
+<section id="sector-intel">
+  <div class="s-head reveal">
+    <div class="s-eye">// A-SHARE MARKET INTEL · LIVE SNAPSHOT · 2026-07-14 收盘</div>
+    <h2>SECTOR HEAT <em>RADAR</em></h2>
+    <button type="button" id="sectorRefreshBtn" class="sector-refresh-btn">↻ 请求刷新数据</button>
+    <div class="sector-refresh-hint">点击后需输入密码，几分钟内生效，页面需手动刷新查看</div>
+  </div>
+  <div class="sector-sub reveal">
+    数据来源：东方财富涨停股池接口（实时行情）+ 公开财经新闻（用于识别概念/题材归属与涨停催化剂，非行业代码简单归类）。方法论：先用涨停家数定位资金最集中的题材，再逐一核实每只个股的实际驱动因素——业绩预告、政策消息、产业催化——剔除"同行业但驱动因素不同"的伪概念。板块内个股按"连板数 → 封板资金"排序，最强者标为龙头，标注真实"N天M板"节奏。仅为数据与公开信息整理，不构成投资建议。
+  </div>
+
+  <div class="threat-banner reveal"><span class="dot"></span>今日 81 只涨停 · 沪指收复3900点，创业板指涨3.43% · 概念维度热度前 3 如下</div>
+
+  <div class="comp-grid">
+
+    <div class="comp-card reveal">
+      <div class="comp-name"><span class="rank-badge">1</span>算力硬件相关</div>
+      <div class="comp-hq">PCB · 覆铜板 · 被动元件(MLCC) · 电容</div>
+      <div class="comp-rows">
+        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">11 只</span></div>
+        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">东山精密（4天2板）</span></div>
+        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">33.12 亿元</span></div>
+        <div class="comp-row"><span class="comp-lbl">催化剂</span><span class="comp-val">6/11只查实独立业绩预增，非单纯情绪</span></div>
+      </div>
+      <div class="comp-edge">跨PCB/覆铜板/被动元件/电容4个细分概念，但共享同一条产业逻辑——AI服务器/算力硬件放量拉动上游用量。11只中6只（东山精密、生益科技、沪电股份、金安国纪、风华高科、则成电子）逐股查实到独立的中报预增或业绩公告，同比增幅从61.84%到1063%不等，另5只未查到独立催化剂，判定为板块联动补涨。</div>
+    </div>
+
+    <div class="comp-card reveal">
+      <div class="comp-name"><span class="rank-badge">2</span>电解铝产业链</div>
+      <div class="comp-hq">电解铝 · 铝加工</div>
+      <div class="comp-rows">
+        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">4 只</span></div>
+        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">宏桥控股（2连板）</span></div>
+        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">2.47 亿元</span></div>
+        <div class="comp-row"><span class="comp-lbl">催化剂</span><span class="comp-val">3/4只查实半年报预增，行业性共振</span></div>
+      </div>
+      <div class="comp-edge">4只中3只（宏桥控股、天山铝业、中孚实业）逐股查实到半年报预增公告，净利同比增幅69.72%~175.62%不等，均指向同一根本驱动——2026上半年A00铝均价同比+18.96%，电解铝销售价格大幅上涨；驰宏锌锗未查到独立预告，判定为金属价格联动。是4个板块中唯一每只龙头股都有连板延续、且概念高度统一的板块。</div>
+    </div>
+
+    <div class="comp-card reveal">
+      <div class="comp-name"><span class="rank-badge">3</span>医药股 <span class="driver">（非单一概念，多事件共振）</span></div>
+      <div class="comp-hq">基药目录政策 · 创新药BD出海 · 并购重组</div>
+      <div class="comp-rows">
+        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">6 只</span></div>
+        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">哈药股份（3连板）</span></div>
+        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">3.87 亿元</span></div>
+        <div class="comp-row"><span class="comp-lbl">催化剂</span><span class="comp-val">三条独立主线叠加，非统一题材</span></div>
+      </div>
+      <div class="comp-edge">与前两个板块不同，医药股今日涨停并非同一概念驱动，逐股核实后是三条互不相关的主线叠加：①政策——卫健委《国家基本药物目录（2026年版）》扩容 + 《中医药振兴发展"十五五"规划》，哈药股份三连板登顶（半年报预增净利+46.4%~68.36%）；②创新药BD出海——迪哲医药与阿斯利康签署舒沃哲全球独家许可协议，14秒封20CM涨停，与政策无关；③并购重组——药易购以1元对价连收3家公司股权（中医药电商+连锁药房+智慧供应链），20CM涨停，同样与政策无关。仅按申万一级行业统计会误判为"中药政策"单一题材，掩盖了背后三条不同的驱动逻辑。</div>
+    </div>
+
+  </div>
+
+  <div class="comp-table-wrap reveal">
+
+    <div class="stock-table-title">算力硬件相关 <span class="heat-tag">// 11 只涨停 · 覆盖PCB/覆铜板/被动元件/电容4个子概念 · 按连板数→封板资金排序</span></div>
+    <table class="comp-table">
+      <thead>
+        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>概念</th><th>封板资金</th><th>驱动因素</th></tr>
+      </thead>
+      <tbody>
+        <tr class="leader-row">
+          <td>002384</td>
+          <td>东山精密<span class="leader-tag">龙头</span></td>
+          <td class="up">+10.00%</td>
+          <td>4天2板</td>
+          <td>PCB·AI光模块</td>
+          <td>11.79亿</td>
+          <td class="driver verified">一季报净利+143.47%·索尔思光电/GMD并购卡位AI光模块</td>
+        </tr>
+        <tr>
+          <td>600183</td>
+          <td>生益科技</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>覆铜板</td>
+          <td>10.50亿</td>
+          <td class="driver verified">中报预增117%~131%·覆铜板量价齐升</td>
+        </tr>
+        <tr>
+          <td>001389</td>
+          <td>广合科技</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>PCB</td>
+          <td>2.85亿</td>
+          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
+        </tr>
+        <tr>
+          <td>002463</td>
+          <td>沪电股份</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>PCB</td>
+          <td>2.53亿</td>
+          <td class="driver verified">中报预增68%~78%·AI服务器订单</td>
+        </tr>
+        <tr>
+          <td>002484</td>
+          <td>江海股份</td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>电容</td>
+          <td>1.86亿</td>
+          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
+        </tr>
+        <tr>
+          <td>002636</td>
+          <td>金安国纪</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>覆铜板</td>
+          <td>1.17亿</td>
+          <td class="driver verified">中报预增936%~1063%·覆铜板高景气</td>
+        </tr>
+        <tr>
+          <td>000636</td>
+          <td>风华高科</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>被动元件(MLCC)</td>
+          <td>0.75亿</td>
+          <td class="driver verified">中报预增61.84%~79.82%（7/10已披露）</td>
+        </tr>
+        <tr>
+          <td>603186</td>
+          <td>华正新材</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>覆铜板</td>
+          <td>0.66亿</td>
+          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
+        </tr>
+        <tr>
+          <td>002141</td>
+          <td>贤丰控股</td>
+          <td class="up">+9.91%</td>
+          <td>首板</td>
+          <td>电子元件</td>
+          <td>0.49亿</td>
+          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
+        </tr>
+        <tr>
+          <td>603989</td>
+          <td>艾华集团</td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>铝电解电容</td>
+          <td>0.37亿</td>
+          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
+        </tr>
+        <tr>
+          <td>920821</td>
+          <td>则成电子</td>
+          <td class="up">+29.97%</td>
+          <td>首板</td>
+          <td>AI眼镜/可穿戴</td>
+          <td>0.15亿</td>
+          <td class="driver verified">AI眼镜产品批量交付+汽车电子放量，北交所30CM</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stock-table-title">电解铝产业链 <span class="heat-tag">// 4 只涨停 · 按连板数→封板资金排序</span></div>
+    <table class="comp-table">
+      <thead>
+        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>概念</th><th>封板资金</th><th>驱动因素</th></tr>
+      </thead>
+      <tbody>
+        <tr class="leader-row">
+          <td>002379</td>
+          <td>宏桥控股<span class="leader-tag">龙头</span></td>
+          <td class="up">+10.00%</td>
+          <td>2连板</td>
+          <td>电解铝</td>
+          <td>0.97亿</td>
+          <td class="driver verified">半年报预增净利150~160亿元(+69.72%~81.04%)·铝价上涨+财务费用降低</td>
+        </tr>
+        <tr>
+          <td>600497</td>
+          <td>驰宏锌锗</td>
+          <td class="up">+10.00%</td>
+          <td>首板</td>
+          <td>有色金属</td>
+          <td>0.71亿</td>
+          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
+        </tr>
+        <tr>
+          <td>002532</td>
+          <td>天山铝业</td>
+          <td class="up">+9.96%</td>
+          <td>首板</td>
+          <td>电解铝</td>
+          <td>0.65亿</td>
+          <td class="driver verified">半年报预增净利42亿元(+101.52%)·电解铝售价显著上行</td>
+        </tr>
+        <tr>
+          <td>600595</td>
+          <td>中孚实业</td>
+          <td class="up">+10.03%</td>
+          <td>首板</td>
+          <td>电解铝·铝箔</td>
+          <td>0.14亿</td>
+          <td class="driver verified">半年报预增净利18~19.5亿元(+154.42%~175.62%)·铝价高位+电池铝箔放量</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stock-table-title">医药股（三条独立主线） <span class="heat-tag">// 6 只涨停 · 按连板数→封板资金排序</span></div>
+    <table class="comp-table">
+      <thead>
+        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>概念</th><th>封板资金</th><th>驱动因素</th></tr>
+      </thead>
+      <tbody>
+        <tr class="leader-row">
+          <td>600664</td>
+          <td>哈药股份<span class="leader-tag">龙头</span></td>
+          <td class="up">+9.97%</td>
+          <td>3连板</td>
+          <td>基药目录·中药政策</td>
+          <td>1.14亿</td>
+          <td class="driver verified">基药目录2026版扩容+中药十五五规划共振·中报预增46.4%~68.36%</td>
+        </tr>
+        <tr>
+          <td>002432</td>
+          <td>九安医疗</td>
+          <td class="up">+10.01%</td>
+          <td>首板</td>
+          <td>医疗器械</td>
+          <td>1.25亿</td>
+          <td class="driver">板块情绪带动，未查实到独立催化剂</td>
+        </tr>
+        <tr>
+          <td>688192</td>
+          <td>迪哲医药-U</td>
+          <td class="up">+20.00%</td>
+          <td>首板</td>
+          <td>创新药BD出海</td>
+          <td>1.23亿</td>
+          <td class="driver verified">与阿斯利康签署舒沃哲全球独家许可协议，14秒封20CM</td>
+        </tr>
+        <tr>
+          <td>603367</td>
+          <td>辰欣药业</td>
+          <td class="up">+9.98%</td>
+          <td>首板</td>
+          <td>医药商业</td>
+          <td>0.56亿</td>
+          <td class="driver">板块情绪带动，未查实到独立催化剂</td>
+        </tr>
+        <tr>
+          <td>300937</td>
+          <td>药易购</td>
+          <td class="up">+20.01%</td>
+          <td>首板</td>
+          <td>并购重组</td>
+          <td>0.39亿</td>
+          <td class="driver verified">1元对价连收3家公司（中医药电商+连锁药房+智慧供应链）</td>
+        </tr>
+        <tr>
+          <td>600829</td>
+          <td>人民同泰</td>
+          <td class="up">+10.04%</td>
+          <td>首板</td>
+          <td>医药商业</td>
+          <td>0.30亿</td>
+          <td class="driver">医药商业板块联动，未查实到独立催化剂</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="watch-note reveal">
+    <b>观察但未入选 // 油气板块</b> — 今日盘面标题热度最高的板块，多家财经媒体收评标题写作"油气股爆发""油气领涨"：美伊地缘冲突升级、特朗普宣布封锁霍尔木兹海峡，WTI原油期货两日累计涨超12%创2020年5月以来最大单日涨幅，通源石油20CM涨停、中曼石油等跟涨。但涨停家数仅3只，按"涨停家数"这一量化排序标准进入不了前3；列在此处是提醒：媒体热度/情绪热度与涨停家数排序并非同一件事，做统计取舍时两者需要分开看。
+  </div>
+
+  <div class="watch-note reveal">
+    <b>观察但未入选 // 汽车零部件板块</b> — 今日涨停家数7只（飞龙股份、保隆科技、凯龙高科等），单纯按行业代码统计数量可排第2，但逐股核实后发现催化剂并不统一：飞龙股份驱动来自AI液冷业务放量，其余个股则分散在底盘、精密压铸、传动等不同细分逻辑，天普股份甚至公告澄清"未开展AI相关业务、未与中昊芯英签订合作协议"。板块内部缺乏统一题材共识，因此按"概念集中度"标准未列入本次前三。
+  </div>
+
+  <div class="sector-disclaimer reveal">
+    DATA SOURCE // EastMoney push2ex 涨停股池接口（2026-07-14实时数据）+ 财联社/新浪财经/东方财富等公开报道交叉核实催化剂 · 龙头判定：同题材内连板数最高者优先，其次按封板资金排序 · "N天M板"含义：最近N个交易日内出现M次涨停（如"4天2板"）· 本板块分析为公开数据与公开报道的整理归纳，不构成任何投资建议，市场有风险，决策需谨慎。
+  </div>
+  <div class="sources-note reveal">
+    主要信息来源：<a href="https://www.cls.cn/detail/2425939" target="_blank" rel="noopener">财联社·每日收评</a> ·
+    <a href="https://stock.jrj.com.cn/2026/07/14173257798813.shtml" target="_blank" rel="noopener">金融界·涨停复盘</a> ·
+    <a href="https://www.nbd.com.cn/articles/2026-07-14/4471002.html" target="_blank" rel="noopener">每经网·东山精密</a> ·
+    <a href="https://cj.sina.com.cn/articles/view/7964800279/1dabd351700101ua5k" target="_blank" rel="noopener">新浪财经·宏桥控股</a> ·
+    <a href="https://finance.sina.com.cn/stock/hyyj/2026-07-13/doc-inihqrit2570087.shtml" target="_blank" rel="noopener">新浪财经·铝企中报预增</a> ·
+    <a href="https://www.163.com/dy/article/L1QSEHUP0519H4OO.html" target="_blank" rel="noopener">网易财经·哈药股份三连板</a> ·
+    <a href="https://finance.ifeng.com/c/8ukkpxgrBBv" target="_blank" rel="noopener">凤凰网财经·迪哲医药20CM</a> ·
+    <a href="https://www.nbd.com.cn/articles/2026-07-14/4472028.html" target="_blank" rel="noopener">每经网·药易购1元收购</a> ·
+    <a href="https://www.nbd.com.cn/articles/2026-07-14/4470588.html" target="_blank" rel="noopener">每经网·油气板块领涨</a>
   </div>
 </section>
 
@@ -1233,302 +1542,6 @@
   </div>
 </section>
 
-<!-- ── SECTOR HEAT INTEL ── -->
-<section id="sector-intel">
-  <div class="s-head reveal">
-    <div class="s-eye">// A-SHARE MARKET INTEL · LIVE SNAPSHOT · 2026-07-14 收盘</div>
-    <h2>SECTOR HEAT <em>RADAR</em></h2>
-  </div>
-  <div class="sector-sub reveal">
-    数据来源：东方财富涨停股池接口（实时行情）+ 公开财经新闻（用于识别概念/题材归属与涨停催化剂，非行业代码简单归类）。方法论：先用涨停家数定位资金最集中的题材，再逐一核实每只个股的实际驱动因素——业绩预告、政策消息、产业催化——剔除"同行业但驱动因素不同"的伪概念。板块内个股按"连板数 → 封板资金"排序，最强者标为龙头，标注真实"N天M板"节奏。仅为数据与公开信息整理，不构成投资建议。
-  </div>
-
-  <div class="threat-banner reveal"><span class="dot"></span>今日 81 只涨停 · 沪指收复3900点，创业板指涨3.43% · 概念维度热度前 3 如下</div>
-
-  <div class="comp-grid">
-
-    <div class="comp-card reveal">
-      <div class="comp-name"><span class="rank-badge">1</span>算力硬件相关</div>
-      <div class="comp-hq">PCB · 覆铜板 · 被动元件(MLCC) · 电容</div>
-      <div class="comp-rows">
-        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">11 只</span></div>
-        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">东山精密（4天2板）</span></div>
-        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">33.12 亿元</span></div>
-        <div class="comp-row"><span class="comp-lbl">催化剂</span><span class="comp-val">6/11只查实独立业绩预增，非单纯情绪</span></div>
-      </div>
-      <div class="comp-edge">跨PCB/覆铜板/被动元件/电容4个细分概念，但共享同一条产业逻辑——AI服务器/算力硬件放量拉动上游用量。11只中6只（东山精密、生益科技、沪电股份、金安国纪、风华高科、则成电子）逐股查实到独立的中报预增或业绩公告，同比增幅从61.84%到1063%不等，另5只未查到独立催化剂，判定为板块联动补涨。</div>
-    </div>
-
-    <div class="comp-card reveal">
-      <div class="comp-name"><span class="rank-badge">2</span>电解铝产业链</div>
-      <div class="comp-hq">电解铝 · 铝加工</div>
-      <div class="comp-rows">
-        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">4 只</span></div>
-        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">宏桥控股（2连板）</span></div>
-        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">2.47 亿元</span></div>
-        <div class="comp-row"><span class="comp-lbl">催化剂</span><span class="comp-val">3/4只查实半年报预增，行业性共振</span></div>
-      </div>
-      <div class="comp-edge">4只中3只（宏桥控股、天山铝业、中孚实业）逐股查实到半年报预增公告，净利同比增幅69.72%~175.62%不等，均指向同一根本驱动——2026上半年A00铝均价同比+18.96%，电解铝销售价格大幅上涨；驰宏锌锗未查到独立预告，判定为金属价格联动。是4个板块中唯一每只龙头股都有连板延续、且概念高度统一的板块。</div>
-    </div>
-
-    <div class="comp-card reveal">
-      <div class="comp-name"><span class="rank-badge">3</span>医药股 <span class="driver">（非单一概念，多事件共振）</span></div>
-      <div class="comp-hq">基药目录政策 · 创新药BD出海 · 并购重组</div>
-      <div class="comp-rows">
-        <div class="comp-row"><span class="comp-lbl">涨停家数</span><span class="comp-val">6 只</span></div>
-        <div class="comp-row"><span class="comp-lbl">龙头</span><span class="comp-val">哈药股份（3连板）</span></div>
-        <div class="comp-row"><span class="comp-lbl">封板资金合计</span><span class="comp-val">3.87 亿元</span></div>
-        <div class="comp-row"><span class="comp-lbl">催化剂</span><span class="comp-val">三条独立主线叠加，非统一题材</span></div>
-      </div>
-      <div class="comp-edge">与前两个板块不同，医药股今日涨停并非同一概念驱动，逐股核实后是三条互不相关的主线叠加：①政策——卫健委《国家基本药物目录（2026年版）》扩容 + 《中医药振兴发展"十五五"规划》，哈药股份三连板登顶（半年报预增净利+46.4%~68.36%）；②创新药BD出海——迪哲医药与阿斯利康签署舒沃哲全球独家许可协议，14秒封20CM涨停，与政策无关；③并购重组——药易购以1元对价连收3家公司股权（中医药电商+连锁药房+智慧供应链），20CM涨停，同样与政策无关。仅按申万一级行业统计会误判为"中药政策"单一题材，掩盖了背后三条不同的驱动逻辑。</div>
-    </div>
-
-  </div>
-
-  <div class="comp-table-wrap reveal">
-
-    <div class="stock-table-title">算力硬件相关 <span class="heat-tag">// 11 只涨停 · 覆盖PCB/覆铜板/被动元件/电容4个子概念 · 按连板数→封板资金排序</span></div>
-    <table class="comp-table">
-      <thead>
-        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>概念</th><th>封板资金</th><th>驱动因素</th></tr>
-      </thead>
-      <tbody>
-        <tr class="leader-row">
-          <td>002384</td>
-          <td>东山精密<span class="leader-tag">龙头</span></td>
-          <td class="up">+10.00%</td>
-          <td>4天2板</td>
-          <td>PCB·AI光模块</td>
-          <td>11.79亿</td>
-          <td class="driver verified">一季报净利+143.47%·索尔思光电/GMD并购卡位AI光模块</td>
-        </tr>
-        <tr>
-          <td>600183</td>
-          <td>生益科技</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>覆铜板</td>
-          <td>10.50亿</td>
-          <td class="driver verified">中报预增117%~131%·覆铜板量价齐升</td>
-        </tr>
-        <tr>
-          <td>001389</td>
-          <td>广合科技</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>PCB</td>
-          <td>2.85亿</td>
-          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
-        </tr>
-        <tr>
-          <td>002463</td>
-          <td>沪电股份</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>PCB</td>
-          <td>2.53亿</td>
-          <td class="driver verified">中报预增68%~78%·AI服务器订单</td>
-        </tr>
-        <tr>
-          <td>002484</td>
-          <td>江海股份</td>
-          <td class="up">+10.01%</td>
-          <td>首板</td>
-          <td>电容</td>
-          <td>1.86亿</td>
-          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
-        </tr>
-        <tr>
-          <td>002636</td>
-          <td>金安国纪</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>覆铜板</td>
-          <td>1.17亿</td>
-          <td class="driver verified">中报预增936%~1063%·覆铜板高景气</td>
-        </tr>
-        <tr>
-          <td>000636</td>
-          <td>风华高科</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>被动元件(MLCC)</td>
-          <td>0.75亿</td>
-          <td class="driver verified">中报预增61.84%~79.82%（7/10已披露）</td>
-        </tr>
-        <tr>
-          <td>603186</td>
-          <td>华正新材</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>覆铜板</td>
-          <td>0.66亿</td>
-          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
-        </tr>
-        <tr>
-          <td>002141</td>
-          <td>贤丰控股</td>
-          <td class="up">+9.91%</td>
-          <td>首板</td>
-          <td>电子元件</td>
-          <td>0.49亿</td>
-          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
-        </tr>
-        <tr>
-          <td>603989</td>
-          <td>艾华集团</td>
-          <td class="up">+10.01%</td>
-          <td>首板</td>
-          <td>铝电解电容</td>
-          <td>0.37亿</td>
-          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
-        </tr>
-        <tr>
-          <td>920821</td>
-          <td>则成电子</td>
-          <td class="up">+29.97%</td>
-          <td>首板</td>
-          <td>AI眼镜/可穿戴</td>
-          <td>0.15亿</td>
-          <td class="driver verified">AI眼镜产品批量交付+汽车电子放量，北交所30CM</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="stock-table-title">电解铝产业链 <span class="heat-tag">// 4 只涨停 · 按连板数→封板资金排序</span></div>
-    <table class="comp-table">
-      <thead>
-        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>概念</th><th>封板资金</th><th>驱动因素</th></tr>
-      </thead>
-      <tbody>
-        <tr class="leader-row">
-          <td>002379</td>
-          <td>宏桥控股<span class="leader-tag">龙头</span></td>
-          <td class="up">+10.00%</td>
-          <td>2连板</td>
-          <td>电解铝</td>
-          <td>0.97亿</td>
-          <td class="driver verified">半年报预增净利150~160亿元(+69.72%~81.04%)·铝价上涨+财务费用降低</td>
-        </tr>
-        <tr>
-          <td>600497</td>
-          <td>驰宏锌锗</td>
-          <td class="up">+10.00%</td>
-          <td>首板</td>
-          <td>有色金属</td>
-          <td>0.71亿</td>
-          <td class="driver">板块联动补涨，未单独查实业绩/公告催化剂</td>
-        </tr>
-        <tr>
-          <td>002532</td>
-          <td>天山铝业</td>
-          <td class="up">+9.96%</td>
-          <td>首板</td>
-          <td>电解铝</td>
-          <td>0.65亿</td>
-          <td class="driver verified">半年报预增净利42亿元(+101.52%)·电解铝售价显著上行</td>
-        </tr>
-        <tr>
-          <td>600595</td>
-          <td>中孚实业</td>
-          <td class="up">+10.03%</td>
-          <td>首板</td>
-          <td>电解铝·铝箔</td>
-          <td>0.14亿</td>
-          <td class="driver verified">半年报预增净利18~19.5亿元(+154.42%~175.62%)·铝价高位+电池铝箔放量</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="stock-table-title">医药股（三条独立主线） <span class="heat-tag">// 6 只涨停 · 按连板数→封板资金排序</span></div>
-    <table class="comp-table">
-      <thead>
-        <tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>状态</th><th>概念</th><th>封板资金</th><th>驱动因素</th></tr>
-      </thead>
-      <tbody>
-        <tr class="leader-row">
-          <td>600664</td>
-          <td>哈药股份<span class="leader-tag">龙头</span></td>
-          <td class="up">+9.97%</td>
-          <td>3连板</td>
-          <td>基药目录·中药政策</td>
-          <td>1.14亿</td>
-          <td class="driver verified">基药目录2026版扩容+中药十五五规划共振·中报预增46.4%~68.36%</td>
-        </tr>
-        <tr>
-          <td>002432</td>
-          <td>九安医疗</td>
-          <td class="up">+10.01%</td>
-          <td>首板</td>
-          <td>医疗器械</td>
-          <td>1.25亿</td>
-          <td class="driver">板块情绪带动，未查实到独立催化剂</td>
-        </tr>
-        <tr>
-          <td>688192</td>
-          <td>迪哲医药-U</td>
-          <td class="up">+20.00%</td>
-          <td>首板</td>
-          <td>创新药BD出海</td>
-          <td>1.23亿</td>
-          <td class="driver verified">与阿斯利康签署舒沃哲全球独家许可协议，14秒封20CM</td>
-        </tr>
-        <tr>
-          <td>603367</td>
-          <td>辰欣药业</td>
-          <td class="up">+9.98%</td>
-          <td>首板</td>
-          <td>医药商业</td>
-          <td>0.56亿</td>
-          <td class="driver">板块情绪带动，未查实到独立催化剂</td>
-        </tr>
-        <tr>
-          <td>300937</td>
-          <td>药易购</td>
-          <td class="up">+20.01%</td>
-          <td>首板</td>
-          <td>并购重组</td>
-          <td>0.39亿</td>
-          <td class="driver verified">1元对价连收3家公司（中医药电商+连锁药房+智慧供应链）</td>
-        </tr>
-        <tr>
-          <td>600829</td>
-          <td>人民同泰</td>
-          <td class="up">+10.04%</td>
-          <td>首板</td>
-          <td>医药商业</td>
-          <td>0.30亿</td>
-          <td class="driver">医药商业板块联动，未查实到独立催化剂</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-  <div class="watch-note reveal">
-    <b>观察但未入选 // 油气板块</b> — 今日盘面标题热度最高的板块，多家财经媒体收评标题写作"油气股爆发""油气领涨"：美伊地缘冲突升级、特朗普宣布封锁霍尔木兹海峡，WTI原油期货两日累计涨超12%创2020年5月以来最大单日涨幅，通源石油20CM涨停、中曼石油等跟涨。但涨停家数仅3只，按"涨停家数"这一量化排序标准进入不了前3；列在此处是提醒：媒体热度/情绪热度与涨停家数排序并非同一件事，做统计取舍时两者需要分开看。
-  </div>
-
-  <div class="watch-note reveal">
-    <b>观察但未入选 // 汽车零部件板块</b> — 今日涨停家数7只（飞龙股份、保隆科技、凯龙高科等），单纯按行业代码统计数量可排第2，但逐股核实后发现催化剂并不统一：飞龙股份驱动来自AI液冷业务放量，其余个股则分散在底盘、精密压铸、传动等不同细分逻辑，天普股份甚至公告澄清"未开展AI相关业务、未与中昊芯英签订合作协议"。板块内部缺乏统一题材共识，因此按"概念集中度"标准未列入本次前三。
-  </div>
-
-  <div class="sector-disclaimer reveal">
-    DATA SOURCE // EastMoney push2ex 涨停股池接口（2026-07-14实时数据）+ 财联社/新浪财经/东方财富等公开报道交叉核实催化剂 · 龙头判定：同题材内连板数最高者优先，其次按封板资金排序 · "N天M板"含义：最近N个交易日内出现M次涨停（如"4天2板"）· 本板块分析为公开数据与公开报道的整理归纳，不构成任何投资建议，市场有风险，决策需谨慎。
-  </div>
-  <div class="sources-note reveal">
-    主要信息来源：<a href="https://www.cls.cn/detail/2425939" target="_blank" rel="noopener">财联社·每日收评</a> ·
-    <a href="https://stock.jrj.com.cn/2026/07/14173257798813.shtml" target="_blank" rel="noopener">金融界·涨停复盘</a> ·
-    <a href="https://www.nbd.com.cn/articles/2026-07-14/4471002.html" target="_blank" rel="noopener">每经网·东山精密</a> ·
-    <a href="https://cj.sina.com.cn/articles/view/7964800279/1dabd351700101ua5k" target="_blank" rel="noopener">新浪财经·宏桥控股</a> ·
-    <a href="https://finance.sina.com.cn/stock/hyyj/2026-07-13/doc-inihqrit2570087.shtml" target="_blank" rel="noopener">新浪财经·铝企中报预增</a> ·
-    <a href="https://www.163.com/dy/article/L1QSEHUP0519H4OO.html" target="_blank" rel="noopener">网易财经·哈药股份三连板</a> ·
-    <a href="https://finance.ifeng.com/c/8ukkpxgrBBv" target="_blank" rel="noopener">凤凰网财经·迪哲医药20CM</a> ·
-    <a href="https://www.nbd.com.cn/articles/2026-07-14/4472028.html" target="_blank" rel="noopener">每经网·药易购1元收购</a> ·
-    <a href="https://www.nbd.com.cn/articles/2026-07-14/4470588.html" target="_blank" rel="noopener">每经网·油气板块领涨</a>
-  </div>
-</section>
-
 <!-- ── CTA ── -->
 <section id="cta">
   <div class="cta-inner">
@@ -1757,6 +1770,19 @@ document.querySelectorAll('.pcard').forEach(card=>{
     card.style.transform=`translateY(-6px) rotateX(${-dy*5}deg) rotateY(${dx*5}deg)`;
   });
   card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
+});
+
+// ── SECTOR RADAR REFRESH REQUEST ────────────────────────────────────
+document.getElementById('sectorRefreshBtn')?.addEventListener('click', () => {
+  const pwd = window.prompt('请输入刷新密码：');
+  if (!pwd) return;
+  const title = encodeURIComponent('板块热度榜刷新请求');
+  const body = encodeURIComponent(
+    `密码: ${pwd}\n\n(此 issue 由网站"请求刷新数据"按钮自动创建，处理后会被自动关闭)`
+  );
+  const url = `https://github.com/fehdfe08/axon-robotics/issues/new?title=${title}&body=${body}&labels=refresh-request`;
+  window.open(url, '_blank', 'noopener');
+  window.alert('已跳转到 GitHub，请确认提交 issue（需要登录 GitHub）。密码正确的话，几分钟内数据会更新，请稍后手动刷新本页面查看。');
 });
 </script>
 </body>
